@@ -68,3 +68,18 @@ jobs:
           debug: false
           fail_build: false
 
+  NPM-install:
+    runs-on: ubuntu-latest
+    name: Doing a standard npm install 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
