@@ -50,7 +50,7 @@ jobs:
 
   Veracode-container_iac_secrets-sbom:
     runs-on: ubuntu-latest
-    name: Veracode Container/IaC/Secrets scan
+    name: Veracode Container/IaC/Secrets SBOM
 
     steps:
       - name: checkout
@@ -70,7 +70,7 @@ jobs:
 
   NPM-install:
     runs-on: ubuntu-latest
-    name: Doing a standard npm install 
+    name: Doing a standard NPM install 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -86,7 +86,7 @@ jobs:
 
   NPM-install-via-firewall:
     runs-on: ubuntu-latest
-    name: NPM install through firewall 
+    name: NPM install through Veracode firewall 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
