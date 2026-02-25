@@ -18,7 +18,7 @@ jobs:
       - name: Run Veracode SCA
         env:
           SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
-          SRCCLR_API_URL: ${{ secrets.SRCCLR_API_URL }}
+          # SRCCLR_API_URL: ${{ secrets.SRCCLR_API_URL }}
         uses: veracode/veracode-sca@v1.09
 
         with:
@@ -27,6 +27,7 @@ jobs:
 #           quick: true
 #           fail-on-cvss: 1
 #           min-cvss-for-issue: 1
+
   Veracode-container_iac_secrets-scan:
     runs-on: ubuntu-latest
     name: Veracode Container/IaC/Secrets scan
