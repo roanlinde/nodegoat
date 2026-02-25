@@ -83,3 +83,24 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+  NPM-install-via-firewall:
+    runs-on: ubuntu-latest
+    name: NPM install through firewall 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  
+          cache: 'npm'
+
+      - name: Configure npm to use Artifactory
+        run: |
+          echo "Changing Registry to point to firewall"
+          echo "registry=https://Veracode%2Ffirewall-test:${{ secrets.FIREWALL }}@npm.phylum.io/" >> ~/.npmrc
+
+      - name: Install dependencies
+        run: npm install
